@@ -10,25 +10,29 @@ namespace EmployeeBonusCSharp
     {
         static void Main(string[] args)
         {
+            Employee myEmployees = new Employee();
 
             Console.WriteLine("Please Enter your full name");
-            string name = Console.ReadLine();
-            Console.WriteLine("Please Enter your salary");
-            double salary = double.Parse(Console.ReadLine());
-            Console.WriteLine("Please Enter Years of Experience");
-            int experience = int.Parse(Console.ReadLine());
+           string name = Console.ReadLine();
+            bool success;
+            decimal mySalary;
 
-            Employee myEmployees = new Employee()
+            do
             {
-                Name = name,
-                Salary = salary,
-                Experience = experience
-            };
+                Console.WriteLine("Please Enter your salary");
+                string salary = Console.ReadLine();
+                success = decimal.TryParse(salary, out mySalary);
+            } while (!success);
+          
+            myEmployees.Salary = mySalary;
 
-            myEmployees.CalculateBonus();
+
+            Console.WriteLine("Please Enter Years of Experience");
+            int experience = int.Parse(Console.ReadLine());  
+
+           decimal bonus = myEmployees.CalculateBonus();
+            Console.WriteLine(bonus);
                 Console.ReadLine();
-            
-
-        }
+            }
     }
 }

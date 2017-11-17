@@ -36,25 +36,26 @@ namespace EmployeeBonusCSharp
 
         //}
           
-        //have only one return statement
+        //have only one return statement it is a better way.
+        //one return does all the calculations
         public decimal CalculateBonus() {
-            decimal bonus;
+            decimal bonusRate;
             if (Experience < 2)
             {
-                bonus = Salary * 0.1m;
+                bonusRate = 0.1m;
             }
             else if (Experience < 5)
             {
-                bonus = Salary * 0.15m;
+                bonusRate =  0.15m;
             }
             else if (Experience < 10)
             {
-                bonus = Salary * 0.2m;
+                bonusRate = 0.2m;
             }
             else {
-                bonus = Salary * 0.25m;
+                bonusRate = Salary * 0.25m;
             }
-            return bonus;
+            return 200 + (bonusRate * Salary);
         }
     }
 
